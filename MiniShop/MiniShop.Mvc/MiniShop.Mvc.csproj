@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Error\Error.cshtml~RF657b688.TMP" />
+    <None Remove="Views\Home\Index.cshtml~RFf86ac5b.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="5.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.21" />
+    <PackageReference Include="WebApiClientCore" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTools.Core\CommonTools.Core.csproj" />
+    <ProjectReference Include="..\MiniShop.Dto\MiniShop.Dto.csproj" />
+    <ProjectReference Include="..\MiniShopAdmin.Dto\MiniShopAdmin.Dto.csproj" />
+  </ItemGroup>
+
+</Project>
