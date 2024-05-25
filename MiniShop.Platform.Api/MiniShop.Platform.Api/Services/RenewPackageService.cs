@@ -1,0 +1,36 @@
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
+using MiniShop.Platform.Model.Dtos;
+using MiniShop.Platform.Model;
+using Weick.Orm.Core;
+using System;
+
+namespace MiniShop.Platform.Api.Services
+{
+    public class RenewPackageService : BaseService<RenewPackage, RenewPackageDto, int>, IRenewPackageService, IDependency
+    {
+        public RenewPackageService(Lazy<IMapper> mapper, IUnitOfWork unitOfWork, ILogger<RenewPackageService> logger,
+            Lazy<IRepository<RenewPackage>> _repository) : base(mapper, unitOfWork, logger, _repository)
+        {
+
+        }
+    }
+
+    public class RenewPackageCreateService : BaseService<RenewPackage, RenewPackageCreateDto, int>, IRenewPackageCreateService, IDependency
+    {
+        public RenewPackageCreateService(Lazy<IMapper> mapper, IUnitOfWork unitOfWork, ILogger<RenewPackageCreateService> logger,
+            Lazy<IRepository<RenewPackage>> _repository) : base(mapper, unitOfWork, logger, _repository)
+        {
+
+        }
+    }
+
+    public class RenewPackageUpdateService : BaseService<RenewPackage, RenewPackageUpdateDto, int>, IRenewPackageUpdateService, IDependency
+    {
+        public RenewPackageUpdateService(Lazy<IMapper> mapper, IUnitOfWork unitOfWork, ILogger<RenewPackageUpdateService> logger,
+            Lazy<IRepository<RenewPackage>> _repository) : base(mapper, unitOfWork, logger, _repository)
+        {
+
+        }
+    }
+}

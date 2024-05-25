@@ -1,0 +1,49 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using MiniShop.Platform.Api.Services;
+using Weick.Orm.Core.Result;
+using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+
+namespace MiniShop.Platform.Api.Controllers
+{
+    public class RenewPackageController : ControllerAbstract
+    {
+        private readonly Lazy<IRenewPackageService> _renewPackageService;
+        private readonly Lazy<IRenewPackageCreateService> _renewPackageCreateService;
+        private readonly Lazy<IRenewPackageUpdateService> _renewPackageUpdateService;
+
+        public RenewPackageController(ILogger<RenewPackageController> logger,
+            Lazy<IRenewPackageService> renewPackageService,
+            Lazy<IRenewPackageCreateService> renewPackageCreateService,
+            Lazy<IRenewPackageUpdateService> renewPackageUpdateService) : base(logger)
+        {
+            _renewPackageService = renewPackageService;
+            _renewPackageCreateService = renewPackageCreateService;
+            _renewPackageUpdateService = renewPackageUpdateService;
+        }
+
+        [Description("获取续费包列表")]
+        [OperationId("获取续费包列表")]
+        [ResponseCache(Duration = 0)]
+        [HttpGet]
+        public async Task<IResultModel> GetAll()
+        {
+            _logger.LogDebug($"获取续费包列表");
+            return await _renewPackageService.Value.GetListAllAsync();
+        }
+
+        [Description("根据ID获取续费包")]
+        [OperationId("根据ID获取续费包")]
+        [ResponseCache(Duration = 0)]
+        [Parameters(name = "id", param = "ID")]
+        [HttpGet("GetById")]
+        public async Task<IResultModel> GetById([Required] int id)
+        {
+            _logger.LogDebug($"根据ID：{id } 获取续费包");
+            return await _renewPackageService.Value.GetByIdAsync(id);
+        }
+    }
+}
