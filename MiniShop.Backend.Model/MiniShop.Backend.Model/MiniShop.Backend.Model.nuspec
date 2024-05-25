@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>MiniShop.Backend.Model</id>
+    <version>1.0.5</version>
+    <title>MiniShop.Backend.Model</title>
+    <authors>weichangk</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/weichangk/MiniShop.Backend.Model</projectUrl>
+    <description>MiniShop Backend Model</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright @2022</copyright>
+    <tags>MiniShop Backend Model</tags>
+    <dependencies>
+        <dependency id="Weick.Orm.Core" version="1.0.4" />
+        <dependency id="AutoMapper.Extensions.Microsoft.DependencyInjection" version="8.1.1" />
+        <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="3.1.22" />
+    </dependencies>
+  </metadata>
+</package>
