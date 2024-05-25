@@ -1,0 +1,75 @@
+﻿<prism:PrismApplication
+    x:Class="MediaKitWpfApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MediaKitWpfApp"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme
+                    BaseTheme="Dark"
+                    PrimaryColor="DeepPurple"
+                    SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="FourStateButton" TargetType="{x:Type Button}">
+                <Style.Setters>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="ButtonBorder">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <ImageBrush
+                                                        ImageSource="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        TileMode="Tile"
+                                                        Viewport="4,0,4,1" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBorder" Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush
+                                                    ImageSource="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    TileMode="Tile"
+                                                    Viewport="3,0,4,1" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="ButtonBorder" Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush
+                                                    ImageSource="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    TileMode="Tile"
+                                                    Viewport="2,0,4,1" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="ButtonBorder" Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush
+                                                    ImageSource="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    TileMode="Tile"
+                                                    Viewport="1,0,4,1" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style.Setters>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
